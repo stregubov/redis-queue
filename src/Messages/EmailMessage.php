@@ -15,16 +15,6 @@ class EmailMessage extends AbstractMessage
         return $this->handler;
     }
 
-    public function getMaxAttempts(): int
-    {
-        return 1;
-    }
-
-    public function getAttempts(): int
-    {
-        return 1;
-    }
-
     public function __construct($data)
     {
         $this->data = $data;
