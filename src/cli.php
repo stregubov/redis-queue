@@ -31,7 +31,7 @@ while (true) {
     $handlingResult = $handlerInstance::handle($lastMessage);
 
     // если не вышло количество попыток, то добавляем обратно в начало очереди (RR алгоритм)
-    if ($lastMessage->decrementAttempts() > 0) {
+    if (!$handlingResult && $lastMessage->decrementAttempts() > 0) {
         $queue->push($lastMessage, 'email');
     }
 }
